@@ -51,7 +51,9 @@
                     <td>{{ $items->nama_jurusan }}</td>
                     <td>{{ $items->tingkat }}</td>
                     <td><a href="/jurusan/edit/{{$items->id 
-                    }}">Edit</a></td>
+                    }}">Edit</a>
+                    <a href="/jurusan/delete/{{$items->id 
+                    }}">Delete</a></td>
                 <tr>
             @endforeach
 

@@ -74,6 +74,8 @@ class JurusanController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data = Jurusan::find($id);
+        $data->delete();
+        return redirect('jurusan');
     }
 }

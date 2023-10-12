@@ -29,3 +29,4 @@ Route::get('/jurusan/create', [JurusanController::class, 'create']);
 Route::post('/jurusan/store', [JurusanController::class, 'store']);
 Route::get('/jurusan/edit/{id}', [JurusanController::class, 'edit']);
 Route::POST('/jurusan/update/{id}', [JurusanController::class, 'update']);
+Route::get('/jurusan/delete/{id}', [JurusanController::class, 'destroy']);

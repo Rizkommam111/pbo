@@ -55,7 +55,7 @@ class SiswaController extends Controller
      */
     public function edit(Siswa $siswa, $id)
     {
-        return $id;
+        
     }
 
     /**
