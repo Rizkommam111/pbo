@@ -36,7 +36,7 @@ class JurusanController extends Controller
         $new->tingkat = $request->input('tingkat');
         $new->save();
 
-        return redirect('/siswa')->with('status', 'Data Berhasil Di Tambah');
+        return redirect('/jurusan')->with('status', 'Data Berhasil Di Tambah');
     }
 
     /**
