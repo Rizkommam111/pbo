@@ -21,6 +21,13 @@ return new class extends Migration
             $table->string('jurusan');
             $table->timestamps();
         });
+        Schema::create('jurusans', function (Blueprint $table) {
+            $table->id();
+            $table->string('kode_jurusan');
+            $table->string('nama_jurusan');
+            $table->string('tingkat');
+            $table->timestamps();
+        });
     }
 
     /**

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +24,8 @@ Route::get('/siswa', [SiswaController::class, 'index']);
 Route::get('/siswa/create', [SiswaController::class, 'create']);
 Route::post('/siswa/store', [SiswaController::class, 'store']);
 Route::get('/siswa/edit/{id}', [SiswaController::class, 'edit']);
+Route::get('/jurusan', [JurusanController::class, 'index']);
+Route::get('/jurusan/create', [JurusanController::class, 'create']);
+Route::post('/jurusan/store', [JurusanController::class, 'store']);
+Route::get('/jurusan/edit/{id}', [JurusanController::class, 'edit']);
+Route::POST('/jurusan/update/{id}', [JurusanController::class, 'update']);

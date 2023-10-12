@@ -11,7 +11,8 @@
     <h3>Nama: Rizki Raamadhani</h3>
 
     <nav>
-        <a href="{{url('siswa')}}">Link</a>
+        <a href="{{url('siswa')}}">Link Siswa</a>
+        <a href="{{url('jurusan')}}">Link Jurusan</a>
     </nav>
 </body>
 </html>
