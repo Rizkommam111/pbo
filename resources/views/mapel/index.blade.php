@@ -32,33 +32,37 @@
 </head>
 
 <body>
-    <h1>Data Siswa Smk Amaliah</h1>
-    <a href="{{ 'siswa/create' }}" style="text-align: center;">Tambah Data</a>
+    @if (session('status'))
+        <p style="font-size: 20px; color:green">{{session('status')}}</p>
+    @endif
+    <h1>Data Mapel Smk Amaliah</h1>
+    <a href="{{ 'mapel/create' }}" style="text-align: center;">Tambah Data</a>
     <br>
     <table>
         <tr>
             <th>NO</th>
-            <th>Nis</th>
-            <th>Nama Siswa</th>
-            <th>Alamat</th>
-            <th>No Telp</th>
-            <th>Asal Sekolah</th>
-            <th>Jurusan</th>
-            <th>Option</th>
+            <th>Kode Mapel</th>
+            <th>Nama Mapel</th>
+            <th>Kode Jurusan</th>
+            <th>Nama Jurusan</th>
+            <th>Tingkat</th>
+            <th>Action</th>
         </tr>
         <tbody>
 
             @foreach ($mapel as $items)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $items->nis }}</td>
-                    <td>{{ $items->nama }}</td>
-                    <td>{{ $items->alamat }}</td>
-                    <td>{{ $items->no_telp }}</td>
-                    <td>{{ $items->asal_sekolah }}</td>
-                    <td>{{ $items->jurusan }}</td>
-                    <td><a href="/siswa/edit/{{$items->id 
-                    }}">Edit</a></td>
+                    <td>{{ $items->kode_mapel }}</td>
+                    <td>{{ $items->nama_mapel }}</td>
+                    <td>{{ $items->kode_jurusan }}</td>
+                    <td>{{ $items->nama_jurusan }}</td>
+                    <td>{{ $items->tingkat }}</td>
+
+                    <td><a href="/mapel/edit/{{$items->id 
+                    }}">Edit</a>
+                    <a href="/mapel/delete/{{$items->id 
+                    }}" onclick="return confirm('Are You Sure?')">Delete</a></td>
                 <tr>
             @endforeach
 

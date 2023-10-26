@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <style>
-    input[type=text], input[type=number],
+    input[type=text],
+    input[type=number],
     select {
         width: 100%;
         padding: 12px 20px;
@@ -32,33 +33,54 @@
         background-color: #f2f2f2;
         padding: 20px;
     }
+    .alert{
+        color: red;
+    }
 </style>
 
 <body>
 
-    <h3>Form Tambah Data Siswa</h3>
 
     <div>
-        <form action="/siswa/store" method="POST">
-            @csrf
-            <label for="fname">NIS</label>
-            <input type="number" id="fname" name="nis" placeholder="Your NIS..">
+        <!-- /resources/views/post/create.blade.php -->
 
-            <label for="lname">Nama</label>
-            <input type="text" id="lname" name="nama" placeholder="Your Name..">
-            
-            <label for="lname">Alamat</label>
-            <input type="text" id="lname" name="alamat" placeholder="Your Alamat..">
-            
-            <label for="lname">No Telp</label>
-            <input type="text" id="lname" name="no_telp" placeholder="Your Number..">
-            
-            <label for="lname">Asal Sekolah</label>
-            <input type="text" id="lname" name="asal_sekolah" placeholder="Your School..">
-            
-            <label for="lname">Jurusan</label>
-            <input type="text" id="lname" name="jurusan" placeholder="Your Major..">
-            
+        <h1>Form Tambah Data Siswa</h1>
+
+
+
+        <!-- Create Post Form -->
+        <form action="/mapel/store" method="POST">
+            @csrf
+            <label for="fname">Kode Mapel</label>
+            <input type="number" id="fname" name="kode_mapel" placeholder="Your kode mapel..">
+            @error('kode_mapel')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+
+            <label for="lname">Nama Mapel</label>
+            <input type="text" id="lname" name="nama_mapel" placeholder="Your Nama Mapel..">
+            @error('nama_mapel')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+
+            <label for="lname">Kode Jurusan</label>
+            <input type="text" id="lname" name="kode_jurusan" placeholder="Your Kode Jurusan..">
+            @error('kode_jurusan')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+
+            <label for="lname">Nama Jurusan</label>
+            <input type="text" id="lname" name="nama_jurusan" placeholder="Your Nama Jurusan..">
+            @error('nama_jurusan')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+
+            <label for="lname">Tingkat</label>
+            <input type="text" id="lname" name="tingkat" placeholder="Your Nama Jurusan..">
+            @error('tingkat')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+
 
 
             <input type="submit" value="Submit">

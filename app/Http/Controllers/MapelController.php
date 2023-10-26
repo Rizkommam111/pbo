@@ -33,13 +33,29 @@ class MapelController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'kode_mapel' => 'required|string',
+            'nama_mapel' => 'required|string',
+            'kode_jurusan' => 'required|string',
+            'nama_jurusan' => 'required|string',
+            'tingkat' => 'required|string'
+            
+        ],
+        [
+            'kode_mapel' => 'Data kode mapel Harus Di ISI!!!',
+            'nama_mapel' => 'Data nama mapel Harus Di ISI!!!',
+            'kode_jurusan' => 'Data kode jurusan Harus Di ISI!!!',
+            'nama_jurusan' => 'Data nama jurusan Harus Di ISI!!!',
+            'tingkat' => 'required|string'
+            
+        ]);
         $new = new Mapel();
-        $new->kode_mapel = $request->input('nis');
-        $new->nama_mapel = $request->input('nama' );
-        $new->kode_jurusan = $request->input('alamat');
-        $new->nama_jurusanz = $request->input('no_telp');
-        $new->asal_sekolah = $request->input('asal_sekolah');
-        $new->mapel = $request->input('mapel');
+        $new->kode_mapel = $request->kode_mapel;
+        $new->nama_mapel = $request->nama_jurusan;
+        $new->kode_jurusan = $request->kode_jurusan;
+        $new->nama_jurusan = $request->nama_jurusan;
+        $new->tingkat = $request->tingkat;
+        
         $new->save();
 
         return redirect('/mapel')->with('status', 'Data Berhasil Di Tambah');
@@ -67,10 +83,26 @@ class MapelController extends Controller
      */
     public function update(Request $request, mapel $mapel)
     {
+        $request->validate([
+            'kode_mapel' => 'required|string',
+            'nama_mapel' => 'required|string',
+            'kode_jurusan' => 'required|string',
+            'nama_jurusan' => 'required|string',
+            'tingkat' => 'required|string'
+        ],
+        [
+            'kode_mapel' => 'Data kode mapel Harus Di ISI!!!',
+            'nama_mapel' => 'Data nama mapel Harus Di ISI!!!',
+            'kode_jurusan' => 'Data kode jurusan Harus Di ISI!!!',
+            'nama_jurusan' => 'Data nama jurusan Harus Di ISI!!!',
+            'tingkat' => 'Data nama jurusan Harus Di ISI!!!',
+        ]);
         $mapel = Mapel::find($request->input('id'));
-        $mapel->kode_mapel = $request->input('nis');
-        $mapel->nama_mapel = $request->input('nama_mapel');
-        $mapel->tingkat = $request->input('tingkat');
+        $mapel->kode_mapel = $request->kode_mapel;
+        $mapel->nama_mapel = $request->nama_mapel;
+        $mapel->kode_jurusan = $request->kode_jurusan;
+        $mapel->nama_jurusan = $request->nama_jurusan;
+        $mapel->tingkat = $request->tingkat;
         $mapel->update();
         return redirect('/mapel')->with('status', 'Data Berhasil Di Hapus');
     }
@@ -82,5 +114,6 @@ class MapelController extends Controller
     {
         $mapel = Mapel::find($id);
         $mapel->delete();
+        return redirect('mapel');
     }
 }

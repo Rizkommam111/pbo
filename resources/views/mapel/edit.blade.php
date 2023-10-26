@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <style>
-    input[type=text], input[type=number],
+    input[type=text],
+    input[type=number],
     select {
         width: 100%;
         padding: 12px 20px;
@@ -36,30 +37,47 @@
 
 <body>
 
-    <h3>Form Tambah Data Siswa</h3>
+    <h3>Form Tambah Data mapel</h3>
 
     <div>
-        <form action="/siswa/store/{{$siswa->id}}" method="POST">
+        <form action="/mapel/update/{{ $mapel->id }}" method="POST">
             @csrf
-            <label for="fname">NIS</label>
-            <input type="number" id="fname" name="nis" placeholder="Your NIS.." value="{{$siswa->nis}}">
+            <label for="fname">Kode Mapel</label>
+            <input type="number" id="fname" name="kode_mapel" placeholder="Your Kode Mapel" value="{{ $mapel->kode_mapel }}">
+            @error('kode_mapel')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
 
-            <label for="lname">Nama</label>
-            <input type="text" id="lname" name="nama" placeholder="Your Name.." value="{{$siswa->nama}}">
-            
-            <label for="lname">Alamat</label>
-            <input type="text" id="lname" name="alamat" placeholder="Your Alamat.." value="{{$siswa->alamat}}">
-            
-            <label for="lname">No Telp</label>
-            <input type="text" id="lname" name="no_telp" placeholder="Your Number.." value="{{$siswa->no_telp}}">
-            
-            <label for="lname">Asal Sekolah</label>
-            <input type="text" id="lname" name="asal_sekolah" placeholder="Your School.." value="{{$siswa->asal_sekolah}}">
-            
-            <label for="lname">Jurusan</label>
-            <input type="text" id="lname" name="jurusan" placeholder="Your Major.." value="{{$siswa->jurusan}}">
-            
-            <input type="hidden" value="{{$siswa->id}}">
+            <label for="lname">Nama Mapel</label>
+            <input type="text" id="lname" name="nama_mapel" placeholder="Your Name Mapel"
+                value="{{ $mapel->nama_mapel }}">
+            @error('nama_mapel')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+
+            <label for="lname">Kode Jurusan</label>
+            <input type="text" id="lname" name="kode_jurusan" placeholder="Your Kode Jurusan"
+                value="{{ $mapel->kode_jurusan }}">
+            @error('kode_jurusan')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+
+            <label for="lname">Nama Jurusan</label>
+            <input type="text" id="lname" name="nama_jurusan" placeholder="Your Nama Jurusan."
+                value="{{ $mapel->nama_jurusan }}">
+            @error('nama_jurusan')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+
+            <label for="lname">Tingkat</label>
+            <input type="text" id="lname" name="tingkat" placeholder="Your Nama Jurusan."
+                value="{{ $mapel->tingkat }}">
+            @error('tingkat')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+
+
+            <input type="hidden" name="id" value="{{ $mapel->id }}">
 
             <input type="submit" value="Submit">
         </form>
