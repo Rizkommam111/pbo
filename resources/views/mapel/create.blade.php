@@ -39,27 +39,27 @@
     <h3>Form Tambah Data Siswa</h3>
 
     <div>
-        <form action="/siswa/store/{{$siswa->id}}" method="POST">
+        <form action="/siswa/store" method="POST">
             @csrf
             <label for="fname">NIS</label>
-            <input type="number" id="fname" name="nis" placeholder="Your NIS.." value="{{$siswa->nis}}">
+            <input type="number" id="fname" name="nis" placeholder="Your NIS..">
 
             <label for="lname">Nama</label>
-            <input type="text" id="lname" name="nama" placeholder="Your Name.." value="{{$siswa->nama}}">
+            <input type="text" id="lname" name="nama" placeholder="Your Name..">
             
             <label for="lname">Alamat</label>
-            <input type="text" id="lname" name="alamat" placeholder="Your Alamat.." value="{{$siswa->alamat}}">
+            <input type="text" id="lname" name="alamat" placeholder="Your Alamat..">
             
             <label for="lname">No Telp</label>
-            <input type="text" id="lname" name="no_telp" placeholder="Your Number.." value="{{$siswa->no_telp}}">
+            <input type="text" id="lname" name="no_telp" placeholder="Your Number..">
             
             <label for="lname">Asal Sekolah</label>
-            <input type="text" id="lname" name="asal_sekolah" placeholder="Your School.." value="{{$siswa->asal_sekolah}}">
+            <input type="text" id="lname" name="asal_sekolah" placeholder="Your School..">
             
             <label for="lname">Jurusan</label>
-            <input type="text" id="lname" name="jurusan" placeholder="Your Major.." value="{{$siswa->jurusan}}">
+            <input type="text" id="lname" name="jurusan" placeholder="Your Major..">
             
-            <input type="hidden" value="{{$siswa->id}}">
+
 
             <input type="submit" value="Submit">
         </form>

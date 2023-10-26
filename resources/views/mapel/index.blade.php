@@ -32,30 +32,33 @@
 </head>
 
 <body>
-    
-    <h1>Data Jurusan Smk Amaliah</h1>
-    <a href="{{ 'jurusan/create' }}" style="text-align: center;">Tambah Data</a>
+    <h1>Data Siswa Smk Amaliah</h1>
+    <a href="{{ 'siswa/create' }}" style="text-align: center;">Tambah Data</a>
     <br>
     <table>
         <tr>
             <th>NO</th>
-            <th>Kode Jurusan</th>
-            <th>Nama Jurusan</th>
-            <th>Tingkat</th>
-            <th>Actions</th>
+            <th>Nis</th>
+            <th>Nama Siswa</th>
+            <th>Alamat</th>
+            <th>No Telp</th>
+            <th>Asal Sekolah</th>
+            <th>Jurusan</th>
+            <th>Option</th>
         </tr>
         <tbody>
 
-            @foreach ($jurusan as $items)
+            @foreach ($mapel as $items)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $items->kode_jurusan }}</td>
-                    <td>{{ $items->nama_jurusan }}</td>
-                    <td>{{ $items->tingkat }}</td>
-                    <td><a href="/jurusan/edit/{{$items->id 
-                    }}">Edit</a>
-                    <a href="/jurusan/delete/{{$items->id 
-                    }}">Delete</a></td>
+                    <td>{{ $items->nis }}</td>
+                    <td>{{ $items->nama }}</td>
+                    <td>{{ $items->alamat }}</td>
+                    <td>{{ $items->no_telp }}</td>
+                    <td>{{ $items->asal_sekolah }}</td>
+                    <td>{{ $items->jurusan }}</td>
+                    <td><a href="/siswa/edit/{{$items->id 
+                    }}">Edit</a></td>
                 <tr>
             @endforeach
 

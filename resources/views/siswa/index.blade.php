@@ -57,8 +57,9 @@
                     <td>{{ $items->no_telp }}</td>
                     <td>{{ $items->asal_sekolah }}</td>
                     <td>{{ $items->jurusan }}</td>
-                    <td><a href="/siswa/edit/{{$items->id 
-                    }}">Edit</a></td>
+                    <td><a href="/siswa/edit/{{ $items->id }}">Edit</a>
+                        <a href="/siswa/delete/{{ $items->id }}">Delete</a>
+                    </td>
                 <tr>
             @endforeach
 

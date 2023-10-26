@@ -30,13 +30,23 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
+
+        $validated = $request->validate([
+            'nis' => 'required|unique:siswas|max:255',
+            'nama' => 'required',
+            'alamat' => 'required',
+            'no_telp' => 'required',
+            'asal_sekolah' => 'required',
+            'jurusan' => 'required'
+        ]);
+
         $new = new Siswa();
-        $new->nis = $request->input('nis');
-        $new->nama = $request->input('nama' );
-        $new->alamat = $request->input('alamat');
-        $new->no_telp = $request->input('no_telp');
-        $new->asal_sekolah = $request->input('asal_sekolah');
-        $new->jurusan = $request->input('jurusan');
+        $new->nis = $request->nis;
+        $new->nama = $request->nama;
+        $new->alamat = $request->alamat;
+        $new->no_telp = $request->no_telp;
+        $new->asal_sekolah = $request->asal_sekolah;
+        $new->jurusan = $request->jurusan;
         $new->save();
 
         return redirect('/siswa')->with('status', 'Data Berhasil Di Tambah');
@@ -55,7 +65,8 @@ class SiswaController extends Controller
      */
     public function edit(Siswa $siswa, $id)
     {
-        
+        $siswa = Siswa::find($id);
+        return view('siswa/edit', compact('siswa'));
     }
 
     /**
@@ -63,14 +74,21 @@ class SiswaController extends Controller
      */
     public function update(Request $request, Siswa $siswa)
     {
-        //
+        $siswa = Siswa::find($request->input('id'));
+        $siswa->kode_siswa = $request->input('nis');
+        $siswa->nama_siswa = $request->input('nama_siswa');
+        $siswa->tingkat = $request->input('tingkat');
+        $siswa->update();
+        return redirect('/siswa')->with('status', 'Data Berhasil Di Hapus');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Siswa $siswa)
+    public function destroy(String $id)
     {
-        //
+        $data = Siswa::findOrFail($id);
+        $data->delete();
+        return redirect('siswa');
     }
 }
